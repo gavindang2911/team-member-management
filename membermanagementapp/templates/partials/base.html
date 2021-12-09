@@ -7,12 +7,31 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
     <title>Hello, world!</title>
   </head>
   <body>
     {% include 'partials/nav.html' %}
+    <div class="container">
+        <div class="row mt-3 pt-3">
+            <div class="col-md-3">
+                {% include 'partials/side.html' %}
+            </div>
+            <div class="col-md-6">
+                <button type="button" class="border btn btn-default">
 
+                    <i class="bi bi-plus-lg"></i>
+                  </button>
+                {% block content %}
+
+                {% endblock %}
+
+            </div>
+            <div class="col-md-3">
+
+            </div>
+        </div>
+    </div>
     <!-- Optional JavaScript; choose one of the two! -->
 
     <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
