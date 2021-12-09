@@ -1,6 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from django.http import HttpResponse
 from .models import Member
+from .forms import MemberForm
 
 # Create your views here.
 def index(request):
@@ -11,5 +12,15 @@ def index(request):
     }
     return render(request, 'membermanagementapp/index.html', context)
 
+# def add_item(request):
+#     return render(request, 'membermanagementapp/addItem.html')
+
 def add_item(request):
-    return render(request, 'membermanagementapp/addItem.html')
+	form = MemberForm(request.POST or None)
+	if form.is_valid():
+		form.save()
+        # return redirect('/')
+	context = {
+		"form": form,
+	}
+	return render(request, "membermanagementapp/addItem.html", context)
