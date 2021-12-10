@@ -15,12 +15,24 @@ def index(request):
 # def add_item(request):
 #     return render(request, 'membermanagementapp/addItem.html')
 
+# def add_item(request):
+# 	form = MemberForm(request.POST or None)
+# 	if form.is_valid():
+# 		form.save()
+#         # return redirect('/')
+# 	context = {
+# 		"form": form,
+# 	}
+# 	return render(request, "membermanagementapp/addItem.html", context)
 def add_item(request):
-	form = MemberForm(request.POST or None)
-	if form.is_valid():
-		form.save()
-        # return redirect('/')
+	if request.method == 'POST':
+		form = MemberForm(request.POST)
+		if form.is_valid():
+			form.save()
+			return redirect('/')
+	else:
+		form = MemberForm()
 	context = {
-		"form": form,
+		'form': form
 	}
 	return render(request, "membermanagementapp/addItem.html", context)
