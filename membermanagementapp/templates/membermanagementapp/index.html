@@ -23,7 +23,7 @@
                     <p>{{ member.email }}</p>
                 </div>
                 <div class="col-md-4">
-                    <a class="btn btn-info btn-sm" href="#">Edit</a>
+                    <a class="btn btn-info btn-sm" href="{% url 'membermangement-edit-item' member.id %}">Edit</a>
                     <a class="btn btn-danger btn-sm" href="#">Delete</a>
                 </div>
             </div>
