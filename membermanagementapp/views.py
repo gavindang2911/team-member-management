@@ -46,7 +46,7 @@ def add_item(request):
         'count_members': count_members,
         'count_admin': count_admin
     }
-    return render(request, "membermanagementapp/addItem.html", context)
+    return render(request, "membermanagementapp/addMember.html", context)
 
 def edit(request, pk):
     # members = Member.objects.all()
@@ -66,4 +66,4 @@ def edit(request, pk):
         'count_members': count_members,
         'count_admin': count_admin
     }
-    return render(request, 'membermanagementapp/addItem.html', context)
+    return render(request, 'membermanagementapp/editMember.html', context)
