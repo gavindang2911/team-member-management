@@ -11,7 +11,7 @@
         {% for member in members %}
         <div class="border p-3">
             <div class="row">
-                <div class="col-md-10">
+                <div class="col-md-8">
                     <h5>
                         {{ member.first_name }}
                         {{ member.last_name }}
@@ -22,9 +22,9 @@
                     <p>{{ member.phone_number }}</p>
                     <p>{{ member.email }}</p>
                 </div>
-                <div class="col-md-2">
+                <div class="col-md-4">
                     <a class="btn btn-info btn-sm" href="{% url 'membermangement-edit-item' member.id %}">Edit</a>
-                    <!-- <a class="btn btn-danger btn-sm" href="#">Delete</a> -->
+                    <a class="btn btn-danger btn-sm" href="{% url 'membermangement-delete-item' member.id %}">Delete</a>
                 </div>
             </div>
         </div>

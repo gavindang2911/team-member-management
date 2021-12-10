@@ -1,0 +1,16 @@
+{% extends 'partials/base.html' %} {% block content %}
+
+<div class="border p-3">
+    <h4>Deelete Task</h4>
+    <hr>
+    <form method="POST">
+        {% csrf_token %}
+        <div class="alert alert-danger">
+            <p>Are you sure you want to delete member</p>
+        </div>
+        <a class="btn btn-secondary btn-sm" href="{% url 'membermangement-index' %}">Cancel</a>
+        <!-- <a class="btn btn-danger btn-sm" >Delete</a> -->
+        <input class="btn btn-danger btn-sm" type="submit" name="Confirm">
+    </form>
+</div>
+{% endblock %}
