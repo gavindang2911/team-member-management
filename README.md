@@ -1,13 +1,13 @@
 # team-member-management
 
 ## Home page (list members)
-![image](https://user-images.githubusercontent.com/57620352/145550025-5a4516b9-5edd-4f03-a6f3-be20df83470c.png)
+![image](https://user-images.githubusercontent.com/57620352/145916450-a268fa85-d704-44db-968c-b09f23810f60.png)
 
 ## Add member page
-![image](https://user-images.githubusercontent.com/57620352/145550085-136baa1c-194f-40d9-8d17-669267543234.png)
+![image](https://user-images.githubusercontent.com/57620352/145917256-2379ac12-d922-4865-822e-631622730c1d.png)
 
 ## Edit member page
-![image](https://user-images.githubusercontent.com/57620352/145550136-fc209475-9f05-489a-ae88-7395a6055a10.png)
+![image](https://user-images.githubusercontent.com/57620352/145917287-41754ee8-c691-4953-a6d0-ebcf92638022.png)
 
 ## Delete member page
-![image](https://user-images.githubusercontent.com/57620352/145550194-ee298eba-f83b-4296-a6b4-2834e249400f.png)
+![image](https://user-images.githubusercontent.com/57620352/145917323-98345ddc-7510-4772-bbc2-f8d8fddc59c4.png)
