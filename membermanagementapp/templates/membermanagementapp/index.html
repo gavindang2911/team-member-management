@@ -2,14 +2,13 @@
 
 {% extends 'partials/base.html' %}
 
+
 {% block content %}
     <div >
-        <a class="border btn btn-default" href="/addMember">
-            <i class="bi bi-plus-lg"></i>
-        </a>
-        <hr>
+        {% include 'partials/side.html' %}
+
         {% for member in members %}
-        <div class="border p-3">
+        <div class="p-3">
             <div class="row">
                 <div class="col-md-8">
                     <h5>
@@ -22,7 +21,10 @@
                     <p>{{ member.phone_number }}</p>
                     <p>{{ member.email }}</p>
                 </div>
-
+                <div class="col-md-4">
+                    <a class="btn btn-info btn-sm ml-5" href="{% url 'membermangement-edit-item' member.id %}">Edit</a>
+                    <a class="btn btn-danger btn-sm ml-2" href="{% url 'membermangement-delete-item' member.id %}">Delete</a>
+                </div>
             </div>
         </div>
         <hr>
