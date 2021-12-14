@@ -11,6 +11,13 @@ class MemberList(ListView):
     context_object_name = 'members'
     template_name = 'membermanagementapp/index.html'
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['members'] =  Member.objects.all().order_by('role')
+        context = get_context_member_count_helper(context)
+
+        return context
+
 
 class MemberCreate(CreateView):
     model = Member
@@ -21,11 +28,50 @@ class MemberCreate(CreateView):
 
 
 
+class MemberUpdate(UpdateView):
+    model = Member
+    context_object_name = 'form'
+    fields = '__all__'
+    success_url = reverse_lazy('membermangement-index')
+    template_name = 'membermanagementapp/editMember.html'
 
 
 
+# def edit(request, pk):
+#     member_by_id =  Member.objects.get(id=pk)
+#     # count_members = Member.objects.filter(role='Regular Member').count()
+#     # count_admin = Member.objects.filter(role='Admin').count()
+#     count_members, count_admin = member_count_helper()
 
 
+#     if request.method == 'POST':
+#         form = MemberForm(request.POST, instance=member_by_id)
+#         if form.is_valid():
+#             form.save()
+#             return redirect('/')
+#     else:
+#         form = MemberForm(instance=member_by_id)
+#     context = {
+#         'form': form,
+#         'count_members': count_members,
+#         'count_admin': count_admin,
+#         'member_by_id': member_by_id
+#     }
+#     return render(request, 'membermanagementapp/editMember.html', context)
+
+
+def get_context_member_count_helper(context):
+    count_members, count_admin = member_count_helper()
+    context['count_members'] =  count_members
+    context['count_admin'] =  count_admin
+
+    return context
+
+def member_count_helper():
+    count_members = Member.objects.filter(role='Regular Member').count()
+    count_admin = Member.objects.filter(role='Admin').count()
+
+    return count_members, count_admin
 
 
 
@@ -132,8 +178,3 @@ class MemberCreate(CreateView):
 #     return render(request, 'membermanagementapp/deleteMember.html', context)
 
 
-# def member_count_helper():
-#     count_members = Member.objects.filter(role='Regular Member').count()
-#     count_admin = Member.objects.filter(role='Admin').count()
-
-#     return count_members, count_admin
